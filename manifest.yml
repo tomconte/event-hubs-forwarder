@@ -1,0 +1,18 @@
+---
+applications:
+- name: event-hubs-forwarder
+  memory: 512M
+  instances: 1
+  no-route: true
+  health-check-type: none
+  buildpacks:
+    - go_buildpack
+  stack: cflinuxfs3
+  env:
+    GOPACKAGENAME: event-hubs-forwarder
+    GOVERSION: go1.12.5
+    EPH_STORAGE_ACCOUNT: replaceme
+    EPH_ACCOUNT_KEY: replaceme
+    EPH_STORAGE_CONTAINER: replaceme
+    SOURCE_EVENTHUB_CS: remplaceme
+    DESTINATION_EVENTHUB_CS: replaceme
