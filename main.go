@@ -108,7 +108,7 @@ func eventHandler(c context.Context, e *eventhub.Event) error {
 		return nil
 	}
 
-	err = hub.Send(c, e)
+	err = hub.Send(c, eventhub.NewEvent(e.Data))
 	if err != nil {
 		fmt.Println(err)
 		return nil
